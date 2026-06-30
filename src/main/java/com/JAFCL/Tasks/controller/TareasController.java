@@ -22,8 +22,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.PutMapping;
 
-
-
+import com.JAFCL.Tasks.dto.EstadisticasDTO;
+import com.JAFCL.Tasks.service.TareasService;
 
 @RestController
 @RequestMapping("/api")
@@ -86,5 +86,10 @@ public class TareasController {
         return response;
     }
 
+    @GetMapping("/tareas/estadisticas")
+    public HttpGlobalResponse<List<EstadisticasDTO>> mostrarEstadisticas() {
+        HttpGlobalResponse<List<EstadisticasDTO>> response = service.mostrarEstadisticas();
+        return response;
+    }
     
 }
