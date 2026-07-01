@@ -1,0 +1,65 @@
+-- Aprendiz que presenta: Juan Andrés Felipe Castro Londoño
+-- Se crea y utiliza la BD Tasks:
+create database tasks;
+use tasks;
+
+-- Se crea la tabla 'tasks':
+create table tasks(
+id bigint primary key auto_increment,
+titulo varchar(150) not null,
+descripcion text,
+estado enum('PENDIENTE', 'EN_PROGRESO', 'COMPLETADA', 'CANCELADA') default 'PENDIENTE',
+prioridad enum('BAJA', 'MEDIA', 'ALTA', 'URGENTE') not null,
+fecha_creacion datetime,
+fecha_actualizacion datetime
+);
+
+-- Se insertan tareas:
+INSERT INTO tasks (
+    titulo,
+    descripcion,
+    estado,
+    prioridad,
+    fecha_creacion,
+    fecha_actualizacion
+) VALUES
+(
+    'Implementar autenticación JWT',
+    'Desarrollar el sistema de autenticación y autorización utilizando JWT para proteger los endpoints de la API.',
+    'EN_PROGRESO',
+    'URGENTE',
+    '2026-06-28 09:15:00',
+    '2026-06-30 10:45:00'
+),
+(
+    'Diseñar la base de datos',
+    'Crear el modelo entidad-relación y las tablas necesarias para el sistema de gestión de tareas.',
+    'COMPLETADA',
+    'ALTA',
+    '2026-06-25 14:00:00',
+    '2026-06-26 16:30:00'
+),
+(
+    'Crear documentación de la API',
+    'Documentar todos los endpoints utilizando Swagger/OpenAPI para facilitar el consumo del servicio.',
+    'PENDIENTE',
+    'MEDIA',
+    '2026-06-30 08:00:00',
+    '2026-06-30 08:00:00'
+),
+(
+    'Corregir errores del módulo de usuarios',
+    'Resolver los errores encontrados durante las pruebas de integración relacionados con el registro y actualización de usuarios.',
+    'EN_PROGRESO',
+    'ALTA',
+    '2026-06-29 11:20:00',
+    '2026-06-30 09:10:00'
+),
+(
+    'Implementar notificaciones por correo',
+    'Enviar correos electrónicos al crear o completar una tarea. La funcionalidad fue descartada por cambios en los requerimientos.',
+    'CANCELADA',
+    'BAJA',
+    '2026-06-24 10:00:00',
+    '2026-06-27 15:45:00'
+);
